@@ -16,6 +16,14 @@ export const chainIdToCustomConfig = Object.values(CustomChainConfig).reduce<
   return result;
 }, {});
 
+export const chainIdToCustomConfigg = Object.values(CustomChainConfig).reduce<
+  Record<number, CustomChainMetadata>
+>((result, config) => {
+  const id = config.name == 'goerli' ? 5 : 9000;
+  result[id] = config as CustomChainMetadata;
+  return result;
+}, {});
+
 export function getChainMetadata(chainId: number): ChainMetadata {
   if (chainIdToCustomConfig[chainId]) return chainIdToCustomConfig[chainId] as ChainMetadata;
   else if (chainIdToMetadata[chainId]) return chainIdToMetadata[chainId];
