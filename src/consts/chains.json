@@ -4,7 +4,7 @@
     "name": "hypermint",
     "displayName": "Hypermint",
     "nativeToken": { "name": "Hypermint", "symbol": "HMNT", "decimals": 18 },
-    "publicRpcUrls": [{ "http": "http://35.192.54.117:8545" }],
+    "publicRpcUrls": [{ "http": "https://hypermint-rpc-proxy.vercel.app/" }],
     "blockExplorers": [],
     "blocks": {
       "confirmations": 1,
