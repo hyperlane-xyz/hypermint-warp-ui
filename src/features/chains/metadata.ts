@@ -12,11 +12,7 @@ export type CustomChainMetadata = Omit<ChainMetadata, 'name'> & {
 export const chainIdToCustomConfig = Object.values(CustomChainConfig).reduce<
   Record<number, CustomChainMetadata>
 >((result, config) => {
-  if (config.id == 2915579071) {
-    result[9000] = config as CustomChainMetadata;
-  } else {
-    result[config.id] = config as CustomChainMetadata;
-  }
+  result[config.id] = config as CustomChainMetadata;
   return result;
 }, {});
 
