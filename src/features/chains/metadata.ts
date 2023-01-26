@@ -52,7 +52,7 @@ export function getChainDisplayName(chainId?: number, shortName = false): string
 export function getWagmiChainConfig() {
   return Object.values({
     ...wagmiChainMetadata,
-    ...objMap(chainIdToCustomConfig as Record<string, ChainMetadata>, toWagmiConfig),
+    ...objMap(chainIdToCustomConfigg as Record<string, ChainMetadata>, toWagmiConfig),
   });
 }
 
