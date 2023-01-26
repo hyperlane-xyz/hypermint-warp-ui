@@ -37,6 +37,7 @@ export function useTokenTransfer(onDone?: () => void) {
         const { amount, sourceChainId, destinationChainId, recipientAddress, tokenAddress } =
           values;
 
+        const modSourceChainId = sourceChainId === 2915579071 ? 9000 : sourceChainId;
         const tokenRoute = getTokenRoute(
           sourceChainId,
           destinationChainId,
@@ -47,7 +48,7 @@ export function useTokenTransfer(onDone?: () => void) {
         const isNativeToRemote = tokenRoute.type === RouteType.NativeToRemote;
 
         await switchNetwork({
-          chainId: sourceChainId,
+          chainId: modSourceChainId,
         });
 
         // https://github.com/wagmi-dev/wagmi/issues/1565
@@ -65,7 +66,7 @@ export function useTokenTransfer(onDone?: () => void) {
           );
 
           const { wait: approveWait } = await sendTransaction({
-            chainId: sourceChainId,
+            chainId: modSourceChainId,
             request: approveTxRequest,
             mode: 'recklesslyUnprepared',
           });
@@ -90,7 +91,7 @@ export function useTokenTransfer(onDone?: () => void) {
         );
 
         const { wait: transferWait } = await sendTransaction({
-          chainId: sourceChainId,
+          chainId: modSourceChainId,
           request: transferTxRequest,
           mode: 'recklesslyUnprepared',
         });

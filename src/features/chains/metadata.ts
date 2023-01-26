@@ -31,6 +31,9 @@ export function getChainMetadata(chainId: number): ChainMetadata {
 }
 
 export function getChainRpcUrl(chainId: number): string {
+  if (chainId === 5) {
+    return 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161';
+  }
   const metadata = getChainMetadata(chainId);
   const first = metadata.publicRpcUrls[0];
   return first.http;
@@ -39,6 +42,9 @@ export function getChainRpcUrl(chainId: number): string {
 export function getChainExplorerUrl(chainId: number, apiUrl = false): string {
   const metadata = getChainMetadata(chainId);
   const first = metadata.blockExplorers[0];
+  if (!first) {
+    return 'unknown_explorer';
+  }
   return apiUrl ? first.apiUrl || first.url : first.url;
 }
 

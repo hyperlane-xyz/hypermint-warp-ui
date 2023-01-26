@@ -50,7 +50,10 @@ async function fetchTokenBalance(chainId: number, tokenAddress: Address, account
   logger.debug(
     `Fetching balance for account ${accountAddress} token ${tokenAddress} on chain ${chainId}`,
   );
+  console.log('fetchTokenBalance', chainId, tokenAddress, accountAddress);
+  console.log(getProvider(chainId));
   const erc20 = getErc20Contract(tokenAddress, getProvider(chainId));
   const balance = await erc20.balanceOf(accountAddress);
+  console.log(balance);
   return balance.toString();
 }
