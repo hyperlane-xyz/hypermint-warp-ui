@@ -1,22 +1,15 @@
 {
-  "mycustomchain": {
-    "id": 1234,
-    "name": "mycustomchain",
-    "displayName": "My Chain",
-    "nativeToken": { "name": "Ether", "symbol": "ETH", "decimals": 18 },
-    "publicRpcUrls": [{ "http": "https://mycustomchain-rpc.com" }],
-    "blockExplorers": [
-      {
-        "name": "MyCustomScan",
-        "url": "https://mycustomchain-scan.com",
-        "apiUrl": "https://api.mycustomchain-scan.com",
-        "family": "etherscan"
-      }
-    ],
+  "hypermint": {
+    "id": 2915579071,
+    "name": "hypermint",
+    "displayName": "Hypermint",
+    "nativeToken": { "name": "Hypermint", "symbol": "HMNT", "decimals": 18 },
+    "publicRpcUrls": [{ "http": "http://35.192.54.117:8545" }],
+    "blockExplorers": [],
     "blocks": {
       "confirmations": 1,
-      "reorgPeriod": 1,
-      "estimateBlockTime": 10
+      "reorgPeriod": 2,
+      "estimateBlockTime": 13
     },
     "logoImgSrc": "/logo.svg"
   }
