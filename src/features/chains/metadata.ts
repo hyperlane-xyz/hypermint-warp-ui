@@ -50,8 +50,9 @@ export function getWagmiChainConfig() {
 
 // TODO move to SDK
 function toWagmiConfig(_: any, metadata: ChainMetadata): WagmiChain {
+  const id = metadata.name == 'goerli' ? 5 : 2915579071;
   return {
-    id: metadata.id,
+    id,
     name: metadata.displayName,
     network: metadata.name as string,
     nativeCurrency: metadata.nativeToken,
