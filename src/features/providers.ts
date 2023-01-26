@@ -9,7 +9,7 @@ const providerCache = {};
 export function getProvider(chainId: number) {
   if (providerCache[chainId]) return providerCache[chainId];
   const rpcUrl = getChainRpcUrl(chainId);
-  const provider = new providers.JsonRpcProvider(rpcUrl, chainId);
+  const provider = new providers.JsonRpcProvider(rpcUrl);
   providerCache[chainId] = provider;
   return provider;
 }
